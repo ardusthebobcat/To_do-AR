@@ -1,0 +1,23 @@
+<h1>To Do App</h1>
+
+<h3>Click on a list to see its tasks</h3>
+
+<% if @lists.any?() %>
+
+  <% @lists.each() do |list| %>
+    <ul>
+      <li><a href="/list/<%= list.id() %>"><%= list.name() %></a></li>
+    </ul>
+  <% end %>
+
+<% else %>
+
+<h3>You have no lists yet - add one below.</h3>
+
+<% end %>
+
+<form action="/lists" method="post">
+  <label for="list">Add a list:</label>
+  <input type="text" name="list" id="list">
+  <button type="submit">Add list</button>
+</form>

@@ -1,0 +1,20 @@
+<h2><%= @list.name() %>'s Tasks:</h2>
+
+<ul>
+<% @list.tasks.not_done().each() do |task| %>
+  <li><%= task.description %> due: <%= task.due_date %></li><br>
+<% end %>
+</ul>
+
+<form action="/task/new" method="post">
+  <input hidden value="<%= @list.id() %>" name="id">
+
+  <label for="description">Description:</label>
+  <input type="text" name="description">
+
+  <label for="due_date">Due Date</label>
+  <input type="text" name="due_date" placeholder="yyyy-mm-dd">
+
+  <button type="submit">Add Task</button>
+</form>
+<a href="/">Back</a>
